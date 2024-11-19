@@ -29,7 +29,7 @@ resource "aws_security_group" "main" {
 }
 
 resource "aws_docdb_cluster_parameter_group" "main" {
-  family      = "docdb3.6"
+  family      = "docdb4.0"
   name        = "${local.name_prefix}-pg"
   description = "${local.name_prefix}-pg"
   tags        = merge(local.tags, { Name = "${local.name_prefix}-pg" })
@@ -49,3 +49,5 @@ resource "aws_docdb_cluster" "main" {
   tags                             = merge(local.tags, { Name = "${local.name_prefix}-pg" })
   engine_version                   = var.engine_version
 }
+
+
